@@ -1,4 +1,5 @@
-import { makeStyles, Typography } from "@material-ui/core";
+import makeStyles from "@material-ui/core/styles/makeStyles";
+import Typography from "@material-ui/core/Typography";
 import { Product } from "src/types/sanity-data";
 import React from "react";
 import { useNextSanityImage } from "next-sanity-image";
