@@ -31,5 +31,5 @@
   "exclude": [
     "node_modules"
   ],
-  "files": ["@types/block-content-to-react.d.ts", "@types/sanity-data.d.ts"]
+  "files": ["@types/block-content-to-react.d.ts"]
 }
