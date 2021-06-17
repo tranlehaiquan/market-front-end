@@ -50,7 +50,7 @@ const ProductItem: React.FC<Props> = ({ title, price, salePrice, images }) => {
   const imageProps = useNextSanityImage(client, omit(image));
   const classes = useStyles();
   const blurURL = get(image, "asset.metadata.lqip", "");
-  
+
   return (
     <div className={classes.root}>
       <div style={{ position: "relative", paddingTop: "90%" }}>
@@ -59,7 +59,7 @@ const ProductItem: React.FC<Props> = ({ title, price, salePrice, images }) => {
           loader={imageProps.loader}
           layout="fill"
           objectFit="cover"
-          sizes="(min-width: 800px): 100vw, 500px"
+          sizes="(max-width: 600px): 100vw, 600px"
           placeholder="blur"
           blurDataURL={blurURL}
         />
