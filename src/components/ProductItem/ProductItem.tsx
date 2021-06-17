@@ -5,6 +5,7 @@ import { useNextSanityImage } from "next-sanity-image";
 import client from "sanity/client";
 import Img from "next/image";
 import omit from "lodash/omit";
+import get from "lodash/get";
 
 interface Props extends Product {
   className?: string;
@@ -47,7 +48,8 @@ const ProductItem: React.FC<Props> = ({ title, price, salePrice, images }) => {
   const image = { ...images[0] };
   const imageProps = useNextSanityImage(client, omit(image));
   const classes = useStyles();
-
+  const blurURL = get(image, "asset.metadata.lqip", "");
+  
   return (
     <div className={classes.root}>
       <div style={{ position: "relative", paddingTop: "90%" }}>
@@ -57,6 +59,8 @@ const ProductItem: React.FC<Props> = ({ title, price, salePrice, images }) => {
           layout="fill"
           objectFit="cover"
           sizes="(min-width: 800px): 100vw, 500px"
+          placeholder="blur"
+          blurDataURL={blurURL}
         />
       </div>
       <div className={classes.info}>

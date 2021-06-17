@@ -23,6 +23,9 @@ const QUERY = gql`
         _type
         asset {
           _id
+          metadata {
+            lqip
+          }
         }
         hotspot {
           _type
@@ -54,7 +57,7 @@ function Home() {
     <Container>
       <Grid container spacing={2}>
         {data.allProduct.map((product) => (
-          <Grid key={product._id} item md={4}>
+          <Grid key={product._id} item md={4} xs={12}>
             <ProductItem {...product} />
           </Grid>
         ))}
