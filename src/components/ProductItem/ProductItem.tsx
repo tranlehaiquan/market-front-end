@@ -59,7 +59,7 @@ const ProductItem: React.FC<Props> = ({ title, price, salePrice, images }) => {
           loader={imageProps.loader}
           layout="fill"
           objectFit="cover"
-          sizes="(max-width: 600px): 100vw, 600px"
+          sizes="(max-width: 600px) 100vw, 800px"
           placeholder="blur"
           blurDataURL={blurURL}
         />
