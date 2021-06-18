@@ -7,6 +7,7 @@ import CssBaseline from "@material-ui/core/CssBaseline";
 
 import { useApollo } from "../lib/apolloClient";
 import theme from "../src/theme";
+import Layout from "@components/Layout";
 
 Router.events.on("routeChangeStart", () => Ngr.start());
 Router.events.on("routeChangeComplete", () => Ngr.done());
@@ -19,7 +20,9 @@ function MyApp({ Component, pageProps }) {
     <ThemeProvider theme={theme}>
       <CssBaseline />
       <ApolloProvider client={apolloClient}>
-        <Component {...pageProps} />
+        <Layout>
+          <Component {...pageProps} />
+        </Layout>
       </ApolloProvider>
     </ThemeProvider>
   );

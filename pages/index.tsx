@@ -1,10 +1,10 @@
 import { gql, useQuery } from "@apollo/client";
 import { addApolloState, initializeApollo } from "lib/apolloClient";
 import ProductItem from "@components/ProductItem";
-import Container from "@material-ui/core/Container";
 import React from "react";
-import Grid from "@material-ui/core/Grid";
 import { Product } from "src/types/sanity-data";
+import Banner from "@components/Banner/Banner";
+import { Container, Grid, makeStyles } from "@material-ui/core";
 
 const QUERY = gql`
   query data {
@@ -50,19 +50,32 @@ interface ProductsData {
   allProduct: Product[];
 }
 
+const useStyles = makeStyles(({ spacing }) => ({
+  main: {
+    paddingTop: spacing(5),
+    paddingBottom: spacing(5),
+  },
+}));
+
 function Home() {
   const { data } = useQuery<ProductsData>(QUERY);
+  const classes = useStyles();
 
   return (
-    <Container>
-      <Grid container spacing={2}>
-        {data.allProduct.map((product) => (
-          <Grid key={product._id} item md={4} xs={12}>
-            <ProductItem {...product} />
+    <>
+      <Banner />
+      <div className={classes.main}>
+        <Container>
+          <Grid container spacing={2}>
+            {data.allProduct.map((product) => (
+              <Grid key={product._id} item md={4} xs={12}>
+                <ProductItem {...product} />
+              </Grid>
+            ))}
           </Grid>
-        ))}
-      </Grid>
-    </Container>
+        </Container>
+      </div>
+    </>
   );
 }
 
