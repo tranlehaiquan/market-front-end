@@ -12,7 +12,7 @@ interface Props extends Product {
   className?: string;
 }
 
-const useStyles = makeStyles(({ spacing }) => ({
+const useStyles = makeStyles(({ spacing, palette }) => ({
   root: {
     border: "2px solid #F6F6F6",
     borderRadius: spacing(0.5),
@@ -24,24 +24,20 @@ const useStyles = makeStyles(({ spacing }) => ({
   title: {
     color: "#223263",
     fontWeight: "bold",
-    fontSize: "18px",
     lineHeight: "27px",
   },
   price: {
-    color: "#40BFFF",
+    color: palette.primary.main,
     fontWeight: "bold",
-    fontSize: 14,
   },
   salePrice: {
     color: "#9098B1",
     fontWeight: "bold",
-    fontSize: 14,
     textDecoration: "line-through",
   },
   percent: {
     color: "#FB7181",
     fontWeight: "bold",
-    fontSize: 14,
   },
 }));
 
@@ -65,7 +61,7 @@ const ProductItem: React.FC<Props> = ({ title, price, salePrice, images }) => {
         />
       </div>
       <div className={classes.info}>
-        <Typography className={classes.title}>{title}</Typography>
+        <Typography variant="h6" className={classes.title}>{title}</Typography>
         <Typography>
           <span className={classes.price}>{price}$</span>{" "}
           {salePrice && (
