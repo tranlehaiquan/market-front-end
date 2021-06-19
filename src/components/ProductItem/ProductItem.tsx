@@ -94,7 +94,7 @@ const ProductItem: React.FC<Props> = ({
             <>
               <span className={classes.salePrice}>{salePrice}$</span>{' '}
               <span className={classes.percent}>
-                {Math.round((salePrice / price) * 100)}%
+                {Math.round(100 - (salePrice / price) * 100)}%
               </span>
             </>
           )}
