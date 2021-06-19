@@ -71,14 +71,17 @@ const Header: React.FC<Props> = () => {
       <Container>
         <div className={classes.content}>
           <div className={classes.logo}>
-            <Link href="/">
-              <Image
-                layout="responsive"
-                width="135px"
-                height="44px"
-                src="/logo.png"
-                sizes="100vw"
-              />
+            <Link href="/" passHref>
+              <a>
+                <Image
+                  layout="responsive"
+                  width="135px"
+                  height="44px"
+                  src="/logo.png"
+                  sizes="100vw"
+                  alt="logo"
+                />
+              </a>
             </Link>
           </div>
           <nav className={classes.nav}>

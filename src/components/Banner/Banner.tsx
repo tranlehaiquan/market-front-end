@@ -27,7 +27,7 @@ const Banner: React.FC<Props> = () => {
   return (
     <div className={classes.root}>
       <div className={classes.banner}>
-        <Image src="/banner.png" layout="fill" objectFit="fill" sizes="100vw" />
+        <Image src="/banner.png" layout="fill" objectFit="fill" sizes="100vw" alt="banner" />
         <Container>
           <Typography variant="h3" component="h2" className={classes.content}>
             Super Flash <br /> Sale 50% Off
