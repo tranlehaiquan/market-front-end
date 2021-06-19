@@ -57,8 +57,7 @@ const useStyles = makeStyles(({ spacing }) => ({
   },
 }));
 
-function Home() {
-  const { data } = useQuery<ProductsData>(QUERY);
+const Home: React.FC<{ data: ProductsData }> = ({ data }) => {
   const classes = useStyles();
 
   return (
@@ -77,18 +76,20 @@ function Home() {
       </div>
     </>
   );
-}
+};
 
 export async function getStaticProps() {
   const apolloClient = initializeApollo();
 
-  await apolloClient.query({
+  const { data } = await apolloClient.query({
     query: QUERY,
   });
 
   return addApolloState(apolloClient, {
-    props: {},
-    revalidate: 1,
+    props: {
+      data,
+    },
+    revalidate: 20,
   });
 }
 

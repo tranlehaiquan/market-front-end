@@ -7,7 +7,7 @@ interface Props {
   className?: string;
 }
 
-const useStyles = makeStyles(({ spacing, typography, palette }) => ({
+const useStyles = makeStyles(({ spacing, typography, palette, breakpoints }) => ({
   root: {
     paddingTop: spacing(3.25),
     paddingBottom: spacing(3.25),
@@ -23,6 +23,9 @@ const useStyles = makeStyles(({ spacing, typography, palette }) => ({
   },
   nav: {
     marginLeft: 'auto',
+    [breakpoints.down('md')]: {
+      display: 'none',
+    }
   },
   navItem: {
     padding: spacing(2),

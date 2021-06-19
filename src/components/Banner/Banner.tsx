@@ -6,13 +6,16 @@ interface Props {
   className?: string;
 }
 
-const useStyles = makeStyles(({ palette }) => ({
+const useStyles = makeStyles(({ palette, breakpoints }) => ({
   root: {},
   banner: {
     height: 700,
     position: 'relative',
     display: 'flex',
     alignItems: 'center',
+    [breakpoints.down('md')]: {
+      height: 300,
+    }
   },
   content: {
     position: 'relative',
@@ -32,7 +35,7 @@ const Banner: React.FC<Props> = () => {
           blurDataURL="/banner-blur.png"
           src="/banner.png"
           layout="fill"
-          objectFit="fill"
+          objectFit="cover"
           sizes="100vw"
           alt="banner"
         />
