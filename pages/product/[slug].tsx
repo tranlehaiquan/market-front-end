@@ -104,7 +104,7 @@ export const getStaticPaths: GetStaticPaths = async () => {
     paths: data.allProduct.map(({ slug }) => {
       return { params: { slug: slug.current } };
     }),
-    fallback: false,
+    fallback: 'blocking',
   };
 };
 
