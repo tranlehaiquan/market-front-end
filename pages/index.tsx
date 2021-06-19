@@ -1,10 +1,10 @@
-import { gql, useQuery } from "@apollo/client";
-import { addApolloState, initializeApollo } from "lib/apolloClient";
-import ProductItem from "@components/ProductItem";
-import React from "react";
-import { Product } from "src/types/sanity-data";
-import Banner from "@components/Banner";
-import { Container, Grid, makeStyles } from "@material-ui/core";
+import { gql, useQuery } from '@apollo/client';
+import { addApolloState, initializeApollo } from 'lib/apolloClient';
+import ProductItem from '@components/ProductItem';
+import React from 'react';
+import { Product } from 'src/types/sanity-data';
+import Banner from '@components/Banner';
+import { Container, Grid, makeStyles } from '@material-ui/core';
 
 const QUERY = gql`
   query data {

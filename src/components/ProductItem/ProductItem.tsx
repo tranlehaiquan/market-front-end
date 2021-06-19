@@ -1,12 +1,13 @@
-import makeStyles from "@material-ui/core/styles/makeStyles";
-import Typography from "@material-ui/core/Typography";
-import { Product } from "src/types/sanity-data";
-import React from "react";
-import { useNextSanityImage } from "next-sanity-image";
-import client from "sanity/client";
-import Img from "next/image";
-import omit from "lodash/omit";
-import get from "lodash/get";
+import makeStyles from '@material-ui/core/styles/makeStyles';
+import Typography from '@material-ui/core/Typography';
+import { Product } from 'src/types/sanity-data';
+import React from 'react';
+import { useNextSanityImage } from 'next-sanity-image';
+import client from 'sanity/client';
+import Img from 'next/image';
+import omit from 'lodash/omit';
+import get from 'lodash/get';
+import Link from 'next/link';
 
 interface Props extends Product {
   className?: string;
@@ -14,42 +15,49 @@ interface Props extends Product {
 
 const useStyles = makeStyles(({ spacing, palette }) => ({
   root: {
-    border: "2px solid #F6F6F6",
+    border: '2px solid #F6F6F6',
     borderRadius: spacing(0.5),
+    position: 'relative',
   },
   info: {
     padding: spacing(1.5),
-    textAlign: "center",
+    textAlign: 'center',
   },
   title: {
-    color: "#223263",
-    fontWeight: "bold",
-    lineHeight: "27px",
+    color: '#223263',
+    fontWeight: 'bold',
+    lineHeight: '27px',
   },
   price: {
     color: palette.primary.main,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
   salePrice: {
-    color: "#9098B1",
-    fontWeight: "bold",
-    textDecoration: "line-through",
+    color: '#9098B1',
+    fontWeight: 'bold',
+    textDecoration: 'line-through',
   },
   percent: {
-    color: "#FB7181",
-    fontWeight: "bold",
+    color: '#FB7181',
+    fontWeight: 'bold',
   },
 }));
 
-const ProductItem: React.FC<Props> = ({ title, price, salePrice, images }) => {
+const ProductItem: React.FC<Props> = ({
+  title,
+  price,
+  salePrice,
+  images,
+  slug,
+}) => {
   const image = { ...images[0] };
   const imageProps = useNextSanityImage(client, omit(image));
   const classes = useStyles();
-  const blurURL = get(image, "asset.metadata.lqip", "");
+  const blurURL = get(image, 'asset.metadata.lqip', '');
 
   return (
     <div className={classes.root}>
-      <div style={{ position: "relative", paddingTop: "90%" }}>
+      <div style={{ position: 'relative', paddingTop: '90%' }}>
         <Img
           src={imageProps.src}
           loader={imageProps.loader}
@@ -61,12 +69,16 @@ const ProductItem: React.FC<Props> = ({ title, price, salePrice, images }) => {
         />
       </div>
       <div className={classes.info}>
-        <Typography variant="h6" className={classes.title}>{title}</Typography>
+        <Link href={`/product/${slug.current}`} passHref>
+          <Typography variant="h6" component="a" className={classes.title}>
+            {title}
+          </Typography>
+        </Link>
         <Typography>
-          <span className={classes.price}>{price}$</span>{" "}
+          <span className={classes.price}>{price}$</span>{' '}
           {salePrice && (
             <>
-              <span className={classes.salePrice}>{salePrice}$</span>{" "}
+              <span className={classes.salePrice}>{salePrice}$</span>{' '}
               <span className={classes.percent}>
                 {Math.round((salePrice / price) * 100)}%
               </span>

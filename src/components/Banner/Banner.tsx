@@ -1,6 +1,6 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
-import Image from "next/image";
+import { Container, makeStyles, Typography } from '@material-ui/core';
+import React from 'react';
+import Image from 'next/image';
 
 interface Props {
   className?: string;
@@ -10,15 +10,15 @@ const useStyles = makeStyles(({ palette }) => ({
   root: {},
   banner: {
     height: 700,
-    position: "relative",
-    display: "flex",
-    alignItems: "center",
+    position: 'relative',
+    display: 'flex',
+    alignItems: 'center',
   },
   content: {
-    position: "relative",
+    position: 'relative',
     zIndex: 1,
     color: palette.common.white,
-    fontWeight: "bold",
+    fontWeight: 'bold',
   },
 }));
 
@@ -27,7 +27,7 @@ const Banner: React.FC<Props> = () => {
   return (
     <div className={classes.root}>
       <div className={classes.banner}>
-        <Image src="/banner.png" layout="fill" objectFit="fill" />
+        <Image src="/banner.png" layout="fill" objectFit="fill" sizes="100vw" />
         <Container>
           <Typography variant="h3" component="h2" className={classes.content}>
             Super Flash <br /> Sale 50% Off

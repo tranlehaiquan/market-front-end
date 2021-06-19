@@ -1,7 +1,7 @@
-import { makeStyles, Container, Link as LinkNative } from "@material-ui/core";
-import React from "react";
-import Image from "next/image";
-import Link from "next/link";
+import { makeStyles, Container, Link as LinkNative } from '@material-ui/core';
+import React from 'react';
+import Image from 'next/image';
+import Link from 'next/link';
 
 interface Props {
   className?: string;
@@ -13,23 +13,23 @@ const useStyles = makeStyles(({ spacing, typography, palette }) => ({
     paddingBottom: spacing(3.25),
   },
   logo: {
-    flex: "0 0 135px",
+    flex: '0 0 135px',
     maxWidth: 135,
   },
   content: {
-    display: "flex",
-    justifyContent: "space-between",
-    alignItems: "center",
+    display: 'flex',
+    justifyContent: 'space-between',
+    alignItems: 'center',
   },
   nav: {
-    marginLeft: "auto",
+    marginLeft: 'auto',
   },
   navItem: {
     padding: spacing(2),
-    textDecoration: "none",
+    textDecoration: 'none',
     fontSize: typography.pxToRem(18),
     color: palette.common.black,
-    "&:hover": {
+    '&:hover': {
       color: palette.primary.main,
     },
   },
@@ -37,29 +37,29 @@ const useStyles = makeStyles(({ spacing, typography, palette }) => ({
 
 const LINKS = [
   {
-    _id: "1",
-    label: "Home",
-    href: "/",
+    _id: '1',
+    label: 'Home',
+    href: '/',
   },
   {
-    _id: "2",
-    label: "Bags",
-    href: "/testing",
+    _id: '2',
+    label: 'Bags',
+    href: '/testing',
   },
   {
-    _id: "3",
-    label: "SNEAKERS",
-    href: "/?a=1232",
+    _id: '3',
+    label: 'SNEAKERS',
+    href: '/?a=1232',
   },
   {
-    _id: "4",
-    label: "BELT",
-    href: "/?a=12322",
+    _id: '4',
+    label: 'BELT',
+    href: '/?a=12322',
   },
   {
-    _id: "5",
-    label: "CONTACT",
-    href: "/?a=1232322",
+    _id: '5',
+    label: 'CONTACT',
+    href: '/?a=1232322',
   },
 ];
 

@@ -1,11 +1,11 @@
-import { ApolloClient, ApolloLink, InMemoryCache } from "@apollo/client";
-import { onError } from "@apollo/link-error";
-import { createUploadLink } from "apollo-upload-client";
-import { useMemo } from "react";
-import { endpoint, prodEndpoint } from "../config";
+import { ApolloClient, ApolloLink, InMemoryCache, NormalizedCacheObject } from '@apollo/client';
+import { onError } from '@apollo/link-error';
+import { createUploadLink } from 'apollo-upload-client';
+import { useMemo } from 'react';
+import { endpoint, prodEndpoint } from '../config';
 
-export const APOLLO_STATE_PROP_NAME = "__APOLLO_STATE__";
-let apolloClient;
+export const APOLLO_STATE_PROP_NAME = '__APOLLO_STATE__';
+let apolloClient: ApolloClient<NormalizedCacheObject>;
 
 function createApolloClient() {
   return new ApolloClient({
@@ -24,15 +24,15 @@ function createApolloClient() {
       }),
       // this uses apollo-link-http under the hood, so all the options here come from that package
       createUploadLink({
-        uri: process.env.NODE_ENV === "development" ? endpoint : prodEndpoint,
+        uri: process.env.NODE_ENV === 'development' ? endpoint : prodEndpoint,
         fetchOptions: {
-          credentials: "include",
+          credentials: 'include',
         },
         // pass the headers along from this request. This enables SSR with logged in state
         // headers,
       }),
     ]),
-    ssrMode: typeof window === "undefined",
+    ssrMode: typeof window === 'undefined',
     cache: new InMemoryCache(),
   });
 }
@@ -52,7 +52,7 @@ export function initializeApollo(initialState = null) {
   }
 
   // For SSG and SSR always create a new Apollo Client
-  if (typeof window === "undefined") return _apolloClient;
+  if (typeof window === 'undefined') return _apolloClient;
 
   // Create the Apollo Client once in the client
   if (!apolloClient) apolloClient = _apolloClient;

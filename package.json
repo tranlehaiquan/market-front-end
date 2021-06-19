@@ -5,7 +5,10 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
-    "start": "next start"
+    "start": "next start",
+    "check-format": "prettier --check .",
+    "format": "prettier --write .",
+    "pre-commit": "cross-env lint-staged"
   },
   "dependencies": {
     "@apollo/client": "^3.3.20",
@@ -15,14 +18,24 @@
     "@sanity/client": "^2.10.5",
     "@sanity/image-url": "^0.140.22",
     "apollo-upload-client": "^15.0.0",
+    "cross-env": "^7.0.3",
     "graphql": "^15.5.0",
+    "husky": "^6.0.0",
+    "lint-staged": "^11.0.0",
     "lodash": "^4.17.21",
     "next": "^11.0.0",
     "next-sanity-image": "^3.0.0",
     "nprogress": "^0.2.0",
+    "prettier": "^2.3.1",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
     "styled-components": "^5.3.0"
+  },
+  "lint-staged": {
+    "*.{ts,tsx}": [
+      "yarn format",
+      "git add ."
+    ]
   },
   "devDependencies": {
     "@types/react": "^17.0.11",

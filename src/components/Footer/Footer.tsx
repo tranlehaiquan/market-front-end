@@ -1,5 +1,5 @@
-import { Container, makeStyles, Typography } from "@material-ui/core";
-import React from "react";
+import { Container, makeStyles, Typography } from '@material-ui/core';
+import React from 'react';
 
 interface Props {
   className?: string;
@@ -7,10 +7,10 @@ interface Props {
 
 const useStyles = makeStyles(({ spacing, palette }) => ({
   root: {
-    textAlign: "center",
+    textAlign: 'center',
     paddingTop: spacing(2),
     paddingBottom: spacing(2),
-    backgroundColor: palette.grey[100]
+    backgroundColor: palette.grey[100],
   },
 }));
 

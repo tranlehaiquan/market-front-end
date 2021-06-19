@@ -1,4 +1,4 @@
-import { SanityImageObject } from "@sanity/image-url/lib/types/types";
+import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 
 export type Product = {
   _id: string;
@@ -8,7 +8,7 @@ export type Product = {
   title: string;
   price: number;
   salePrice: number;
-  images: SanityImageObject[]
+  images: SanityImageObject[];
 };
 
 export type Slug = {
