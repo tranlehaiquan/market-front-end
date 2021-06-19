@@ -1,8 +1,10 @@
 import React from 'react';
+import { GetStaticPaths, GetStaticProps } from 'next';
 import { Container, Typography } from '@material-ui/core';
 import { addApolloState, initializeApollo } from 'lib/apolloClient';
 import { gql } from '@apollo/client';
 import { Product } from 'src/types/sanity-data';
+import Head from 'next/head';
 
 const QUERY = gql`
   query($slug: String) {
@@ -59,17 +61,21 @@ interface Props {
 }
 
 const ProductDetail: React.FC<Props> = ({ data }) => {
-  // return <Container>ProductDetail: {JSON.stringify(data)}</Container>;
   return (
-    <div>
+    <>
+      <Head>
+        <title> {data.title} | Simple market</title>
+      </Head>
       <Container>
-        <Typography variant="h1">{data.title}</Typography>
+        <Typography variant="h4" component="h1">
+          {data.title}
+        </Typography>
       </Container>
-    </div>
+    </>
   );
 };
 
-export async function getStaticProps({ params }) {
+export const getStaticProps: GetStaticProps = async ({ params }) => {
   const apolloClient = initializeApollo();
 
   const { data, error } = await apolloClient.query({
@@ -85,9 +91,9 @@ export async function getStaticProps({ params }) {
     },
     revalidate: 1,
   });
-}
+};
 
-export async function getStaticPaths() {
+export const getStaticPaths: GetStaticPaths = async () => {
   const apolloClient = initializeApollo();
 
   const { data, error } = await apolloClient.query({
@@ -100,6 +106,6 @@ export async function getStaticPaths() {
     }),
     fallback: false,
   };
-}
+};
 
 export default ProductDetail;

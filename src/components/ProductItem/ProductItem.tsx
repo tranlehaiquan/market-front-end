@@ -27,6 +27,15 @@ const useStyles = makeStyles(({ spacing, palette }) => ({
     color: '#223263',
     fontWeight: 'bold',
     lineHeight: '27px',
+    textDecoration: 'none',
+    '&:before': {
+      content: '""',
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      width: '100%',
+      height: '100%',
+    },
   },
   price: {
     color: palette.primary.main,
@@ -70,7 +79,12 @@ const ProductItem: React.FC<Props> = ({
       </div>
       <div className={classes.info}>
         <Link href={`/product/${slug.current}`} passHref>
-          <Typography variant="h6" component="a" className={classes.title}>
+          <Typography
+            variant="h6"
+            component="a"
+            className={classes.title}
+            title={title}
+          >
             {title}
           </Typography>
         </Link>
