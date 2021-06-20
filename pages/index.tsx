@@ -1,50 +1,12 @@
-import { gql, useQuery } from '@apollo/client';
-import { addApolloState, initializeApollo } from 'lib/apolloClient';
+import { gql } from '@apollo/client';
 import ProductItem from '@components/ProductItem';
 import React from 'react';
 import { Product } from 'src/types/sanity-data';
 import Banner from '@components/Banner';
 import { Container, Grid, makeStyles } from '@material-ui/core';
-
-const QUERY = gql`
-  query data {
-    allProduct {
-      _id
-      title
-      _createdAt
-      _updatedAt
-      price
-      salePrice
-      slug {
-        current
-      }
-      images {
-        _key
-        _type
-        asset {
-          _id
-          metadata {
-            lqip
-          }
-        }
-        hotspot {
-          _type
-          x
-          y
-          height
-          width
-        }
-        crop {
-          _type
-          top
-          bottom
-          left
-          right
-        }
-      }
-    }
-  }
-`;
+import ItemByCategories from 'modules/ItemByCategories';
+import { addApolloState, initializeApollo } from 'lib/apolloClient';
+import { QUERY_ALL_PRODUCT } from 'src/graphql/query';
 
 interface ProductsData {
   allProduct: Product[];
@@ -72,6 +34,8 @@ const Home: React.FC<{ data: ProductsData }> = ({ data }) => {
               </Grid>
             ))}
           </Grid>
+
+          <ItemByCategories products={[]} />
         </Container>
       </div>
     </>
@@ -82,7 +46,7 @@ export async function getStaticProps() {
   const apolloClient = initializeApollo();
 
   const { data } = await apolloClient.query({
-    query: QUERY,
+    query: QUERY_ALL_PRODUCT,
   });
 
   return addApolloState(apolloClient, {

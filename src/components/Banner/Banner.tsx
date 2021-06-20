@@ -15,7 +15,7 @@ const useStyles = makeStyles(({ palette, breakpoints }) => ({
     alignItems: 'center',
     [breakpoints.down('md')]: {
       height: 300,
-    }
+    },
   },
   content: {
     position: 'relative',

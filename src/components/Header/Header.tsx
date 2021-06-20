@@ -7,36 +7,38 @@ interface Props {
   className?: string;
 }
 
-const useStyles = makeStyles(({ spacing, typography, palette, breakpoints }) => ({
-  root: {
-    paddingTop: spacing(3.25),
-    paddingBottom: spacing(3.25),
-  },
-  logo: {
-    flex: '0 0 135px',
-    maxWidth: 135,
-  },
-  content: {
-    display: 'flex',
-    justifyContent: 'space-between',
-    alignItems: 'center',
-  },
-  nav: {
-    marginLeft: 'auto',
-    [breakpoints.down('md')]: {
-      display: 'none',
-    }
-  },
-  navItem: {
-    padding: spacing(2),
-    textDecoration: 'none',
-    fontSize: typography.pxToRem(18),
-    color: palette.common.black,
-    '&:hover': {
-      color: palette.primary.main,
+const useStyles = makeStyles(
+  ({ spacing, typography, palette, breakpoints }) => ({
+    root: {
+      paddingTop: spacing(3.25),
+      paddingBottom: spacing(3.25),
     },
-  },
-}));
+    logo: {
+      flex: '0 0 135px',
+      maxWidth: 135,
+    },
+    content: {
+      display: 'flex',
+      justifyContent: 'space-between',
+      alignItems: 'center',
+    },
+    nav: {
+      marginLeft: 'auto',
+      [breakpoints.down('md')]: {
+        display: 'none',
+      },
+    },
+    navItem: {
+      padding: spacing(2),
+      textDecoration: 'none',
+      fontSize: typography.pxToRem(18),
+      color: palette.common.black,
+      '&:hover': {
+        color: palette.primary.main,
+      },
+    },
+  })
+);
 
 const LINKS = [
   {
@@ -47,22 +49,22 @@ const LINKS = [
   {
     _id: '2',
     label: 'Bags',
-    href: '/testing',
+    href: '/category/bags',
   },
   {
     _id: '3',
     label: 'SNEAKERS',
-    href: '/?a=1232',
+    href: '/category/sneakers',
   },
   {
     _id: '4',
-    label: 'BELT',
-    href: '/?a=12322',
+    label: 'BELTS',
+    href: '/category/belts',
   },
   {
     _id: '5',
     label: 'CONTACT',
-    href: '/?a=1232322',
+    href: '/contact',
   },
 ];
 

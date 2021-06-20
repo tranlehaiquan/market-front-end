@@ -7,7 +7,7 @@ import { Product } from 'src/types/sanity-data';
 import Head from 'next/head';
 
 const QUERY = gql`
-  query($slug: String) {
+  query ($slug: String) {
     allProduct(where: { slug: { current: { eq: $slug } } }) {
       _id
       title
