@@ -42,11 +42,6 @@ const useStyles = makeStyles(
 
 const LINKS = [
   {
-    _id: '1',
-    label: 'Home',
-    href: '/',
-  },
-  {
     _id: '2',
     label: 'Bags',
     href: '/category/bags',
