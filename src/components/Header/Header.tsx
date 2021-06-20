@@ -63,8 +63,8 @@ const LINKS = [
   },
   {
     _id: '5',
-    label: 'CONTACT',
-    href: '/contact',
+    label: 'Wrong path',
+    href: '/category/abcd123',
   },
 ];
 

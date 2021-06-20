@@ -9,6 +9,7 @@ import ProductItem from '@components/ProductItem';
 import get from 'lodash/get';
 import isEmpty from 'lodash/isEmpty';
 import { QUERY_ALL_PRODUCT } from 'src/graphql/query';
+import Error from 'next/error';
 
 const QUERY_CATEGORY_SLUG = gql`
   query ($slug: String) {
@@ -54,12 +55,7 @@ const ProductDetail: React.FC<Props> = ({ products, category }) => {
 
   if (isEmpty(category)) {
     return (
-      <Container>
-        <Head>
-          <title> Not found | Simple market</title>
-        </Head>
-        <Typography variant="h1">404 | Can&apos;t found</Typography>
-      </Container>
+      <Error statusCode={404} />
     );
   }
 
