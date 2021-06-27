@@ -4,6 +4,7 @@ import Router from 'next/router';
 import { ApolloProvider } from '@apollo/client';
 import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
+import 'keen-slider/keen-slider.min.css';
 
 import { useApollo } from '../lib/apolloClient';
 import theme from '../src/theme';

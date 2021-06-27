@@ -5,7 +5,6 @@ import React from 'react';
 import { useNextSanityImage } from 'next-sanity-image';
 import client from 'sanity/client';
 import Img from 'next/image';
-import omit from 'lodash/omit';
 import get from 'lodash/get';
 import Link from 'next/link';
 
@@ -60,7 +59,7 @@ const ProductItem: React.FC<Props> = ({
   slug,
 }) => {
   const image = { ...images[0] };
-  const imageProps = useNextSanityImage(client, omit(image));
+  const imageProps = useNextSanityImage(client, image);
   const classes = useStyles();
   const blurURL = get(image, 'asset.metadata.lqip', '');
 

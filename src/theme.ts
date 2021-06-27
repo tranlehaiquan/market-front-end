@@ -3,6 +3,9 @@ import { red } from '@material-ui/core/colors';
 
 // Create a theme instance.
 const theme = createMuiTheme({
+  typography: {
+    fontFamily: ['Be Vietnam', 'sans-serif'].join(', '),
+  },
   palette: {
     primary: {
       main: '#40BFFF',

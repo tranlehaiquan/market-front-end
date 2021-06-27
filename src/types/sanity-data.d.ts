@@ -1,5 +1,7 @@
 import { SanityImageObject } from '@sanity/image-url/lib/types/types';
 
+export type SanityPhoto = (SanityImageObject & { _key: string });
+
 export type Product = {
   _id: string;
   _createdAt: string;
@@ -8,7 +10,13 @@ export type Product = {
   title: string;
   price: number;
   salePrice: number;
-  images: SanityImageObject[];
+  images: SanityPhoto[];
+  body: {
+    _key: String;
+    _type: String;
+    enRaw: JSON;
+    esRaw: JSON;
+  }
 };
 
 export type Slug = {
