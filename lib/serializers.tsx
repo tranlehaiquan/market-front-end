@@ -1,6 +1,5 @@
 import React from 'react';
 import { defaultSerializers } from '@sanity/block-content-to-react';
-import Typography from '@material-ui/core/Typography';
 
 const heading = ['h1', 'h2', 'h3', 'h4', 'h5'];
 
@@ -11,7 +10,7 @@ export const serializers = {
 
       // build our mock header styles
       if (heading.includes(style)) {
-        return <Typography variant={style}>{props.children}</Typography>;
+        return <p>{props.children}</p>;
       }
 
       // handle all other blocks with the default serializer
