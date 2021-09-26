@@ -12,6 +12,7 @@ const Home: React.FC<{ data: ProductsData }> = ({ data }) => {
   return (
     <>
       {JSON.stringify(data)}
+      <div className="shadow-2xl w-10 h-10"></div>
     </>
   );
 };
@@ -19,13 +20,12 @@ const Home: React.FC<{ data: ProductsData }> = ({ data }) => {
 export async function getStaticProps() {
   const apolloClient = initializeApollo();
 
-  const { data } = await apolloClient.query({
-    query: QUERY_ALL_PRODUCT,
-  });
+  // const { data } = await apolloClient.query({
+  //   query: QUERY_ALL_PRODUCT,
+  // });
 
   return addApolloState(apolloClient, {
     props: {
-      data,
     },
     revalidate: 20,
   });

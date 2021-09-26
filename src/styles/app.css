@@ -1,0 +1,10 @@
+@import '_config/_variables';
+@import '_config/_mixins.css';
+
+@import 'components/_button.css';
+
+@import 'keen-slider/keen-slider.min.css';
+
+html {
+  scroll-behavior: smooth;
+}

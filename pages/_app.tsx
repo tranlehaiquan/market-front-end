@@ -1,9 +1,12 @@
-import 'nprogress/nprogress.css';
 import Ngr from 'nprogress';
 import Router from 'next/router';
 import { ApolloProvider } from '@apollo/client';
 
 import { useApollo } from '../lib/apolloClient';
+
+import '../src/styles/tailwind.css';
+import '../src/styles/app.css';
+import 'nprogress/nprogress.css';
 
 Router.events.on('routeChangeStart', () => Ngr.start());
 Router.events.on('routeChangeComplete', () => Ngr.done());

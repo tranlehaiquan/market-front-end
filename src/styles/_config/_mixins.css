@@ -1,0 +1,24 @@
+.clean-btn {
+  @apply appearance-none no-underline cursor-pointer;
+}
+
+.translateCenter {
+  @apply top-2/4 transform -translate-y-1/2;
+}
+
+.fontFiraSans {
+  font-family: 'Fira Sans', sans-serif;
+}
+
+.fontRobotoSlab {
+  font-family: 'Roboto Slab', serif;
+}
+
+.dropFilter {
+  -webkit-backdrop-filter: blur(2px);
+  backdrop-filter: blur(2px);
+}
+
+.paddingTop65 {
+  padding-top: 65%;
+}
